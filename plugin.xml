@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<plugin
+    id="cordova-plugin-app-icon-changer"
+    version="1.0.0"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0">
+
+  <name>App Icon Changer</name>
+
+  <author>Eddy Verbruggen - @EddyVerbruggen</author>
+
+  <description>Change the homescreen icon of your app from code.</description>
+
+  <keywords>Icon Changer, Home icon, icon</keywords>
+
+  <license>MIT</license>
+
+  <engines>
+    <engine name="cordova" version=">=3.5.0"/>
+  </engines>
+
+  <js-module name="AppIconChanger" src="www/AppIconChanger.js">
+    <clobbers target="AppIconChanger"/>
+  </js-module>
+
+  <platform name="ios">
+    <config-file parent="/*" target="config.xml">
+      <feature name="AppIconChanger">
+        <param name="ios-package" value="AppIconChanger"/>
+      </feature>
+    </config-file>
+
+    <config-file target="*-Info.plist" parent="CFBundleIcons">
+          <dict>
+              <key>CFBundleAlternateIcons</key>
+                <dict>
+                  <!-- The name you use in code -->
+                  <key>icon-appage</key>
+                  <dict>
+                    <key>UIPrerenderedIcon</key>
+                    <true/>
+                    <key>CFBundleIconFiles</key>
+                    <array>
+                    <!-- The actual filenames. Don't list the @2x/@3x files here, and you can use just the biggest one if you like -->
+                    <string>icon-appage</string>
+                    </array>
+                  </dict>
+                </dict>
+          </dict>
+    </config-file>
+
+    <edit-config target="CFBundleLocalizations" file="*-Info.plist" mode="overwrite">
+        <array>
+            <string>pt-PT</string>
+        </array>
+    </edit-config>
+
+    <header-file src="src/ios/AppIconChanger.h"/>
+    <source-file src="src/ios/AppIconChanger.m"/>
+
+    <resource-file src="res/ios/icon-appage.png" target-dir="Resources" />
+  </platform>
+
+</plugin>

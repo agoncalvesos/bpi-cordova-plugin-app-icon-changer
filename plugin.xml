@@ -48,11 +48,13 @@
           </dict>
     </config-file>
 
-    <edit-config target="CFBundleLocalizations" file="*-Info.plist" mode="overwrite">
+    <config-file target="*-Info.plist" target="CFBundleLocalizations" >
         <array>
             <string>pt-PT</string>
+            <string>en</string>
+            <string>es-ES</string>
         </array>
-    </edit-config>
+    </config-file>
 
     <header-file src="src/ios/AppIconChanger.h"/>
     <source-file src="src/ios/AppIconChanger.m"/>

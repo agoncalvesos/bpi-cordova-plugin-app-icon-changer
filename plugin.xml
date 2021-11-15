@@ -48,7 +48,7 @@
           </dict>
     </config-file>
 
-    <config-file target="*-Info.plist" target="CFBundleLocalizations" >
+    <config-file target="*-Info.plist" parent="CFBundleLocalizations" >
         <array>
             <string>pt-PT</string>
             <string>en</string>
